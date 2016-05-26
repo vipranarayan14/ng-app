@@ -31,6 +31,10 @@ A client-side Javascript Framework for adding interactivity to HTML.
 - `ng-class = { key:value }`
     - key is the class you want to add
     - value is the expression that act as a condition for setting the class
+- `ng-model`
+    - used for dynamically updating a expression with data obtained from `input`s.
+- `ng-submit`
+    - used to dynamically sumbit a form.
 
 
 ###Controllers
