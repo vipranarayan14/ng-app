@@ -1,7 +1,7 @@
 /*global angular */
 (function () {
     var app = angular.module('gemStore', []);
-    
+
     var gems = [
     {
         name: 'Emerald',
@@ -11,7 +11,7 @@
         canPurchase: true,
         soldOut: false
     },
-        
+
     {
         name: 'Sapphire',
         price: '7000',
@@ -20,14 +20,14 @@
         canPurchase: false,
         soldOut: false
     }
-        
+
     ];
-    
-    
+
+
     app.controller('StoreController', function () {
         this.products = gems;
     });
-    
+
     app.controller('PanelController', function () {
         this.tab = 1;
         this.selectTab = function (setTab) {
