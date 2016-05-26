@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app = "gemStore">
+  <head>
+    <title>GemStore</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller = "StoreController as store">
+    <ul class="list-group">
+
+        <li class="list-group-item" ng-repeat = "product in store.products | orderBy:'-price'">
+            <h1>{{product.name | uppercase}}</h1>
+
+            <image width = "100" ng-src = "{{product.image}}" />
+
+            <em class="pull-right">
+                <h2>{{product.price | currency:'&#8377;'}}</h2>
+                <button ng-show = "product.canPurchase">Add to Cart</button>
+            </em>
+            <section ng-controller = "PanelController as panel">
+                <ul class="nav nav-pills">
+                    <li ng-class = "{ active: panel.isSelected(1)}">
+                        <a href="" ng-click="panel.selectTab(1)" >Description</a>
+                    </li>
+                    <li ng-class = "{ active: panel.isSelected(2)}">
+                        <a href="" ng-click="panel.selectTab(2)" >Specification</a>
+                    </li>
+                    <li ng-class = "{ active: panel.isSelected(3)}">
+                        <a href="" ng-click="panel.selectTab(3)" >Reviews</a>
+                    </li>
+                </ul>
+
+            <div class="panel" ng-show = "panel.isSelected(1)">
+                <h4>Descriptions</h4>
+                <p>{{product.description}}</p>
+            </div>
+            <div class="panel" ng-show = "panel.isSelected(2)">
+                <h4>Specifications</h4>
+                <blockquote>None yet</blockquote>
+            </div>
+            <div class="panel" ng-show = "panel.isSelected(3)">
+                <h4>Reviews</h4>
+                <blockquote>None yet</blockquote>
+            </div>
+            </section>
+
+
+        </li>
+      </ul>
+
+  </body>
+</html>
