@@ -7,7 +7,7 @@
         name: 'Emerald',
         price: '4000',
         description: 'This is a green gem.',
-        image: 'eme.jpg',
+        image: 'Images/eme.jpg',
         canPurchase: true,
         soldOut: false
     },
@@ -16,7 +16,7 @@
         name: 'Sapphire',
         price: '7000',
         description: 'This is a blue gem.',
-        image: 'sap.jpg',
+        image: 'Images/sap.jpg',
         canPurchase: false,
         soldOut: false
     }
