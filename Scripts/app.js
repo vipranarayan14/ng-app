@@ -9,7 +9,18 @@
         description: 'This is a green gem.',
         image: 'Images/eme.jpg',
         canPurchase: true,
-        soldOut: false
+        soldOut: false,
+        reviews: [{
+        stars: 5,
+        body: "I love this gem!",
+        author: "joe@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "This gem sucks.",
+        author: "tim@example.org",
+        createdOn: 1397490980837
+      }]
     },
 
     {
@@ -18,7 +29,8 @@
         description: 'This is a blue gem.',
         image: 'Images/sap.jpg',
         canPurchase: false,
-        soldOut: false
+        soldOut: false,
+        reviews: []
     }
 
     ];
@@ -35,6 +47,15 @@
         };
         this.isSelected = function (checkTab) {
             return this.tab === checkTab;
+        };
+    });
+
+    app.controller('ReviewController', function() {
+        this.review = {};
+
+        this.addReview = function(product) {
+          product.reviews.push(this.review);
+          console.log(product.reviews);
         };
     });
 
