@@ -43,13 +43,13 @@
             <div class="panel" ng-show = "panel.isSelected(3)">
               <!--List of Reviews-->
               <br>
-              <ul>
+              <ul class="reviews">
                 <li ng-repeat="review in product.reviews">
                   <blockquote>
                     <strong>{{review.stars}} Stars</strong>
                     {{review.body}}
-                    <cite class="clearfix">&#8210; {{review.author}}</cite>
-                    <small>Commented on: {{review.createdOn | date}}</small>
+                    <small><cite>{{review.author}}</cite> on {{review.createdOn | date}}</small>
+
                   </blockquote>
                 </li>
               </ul>
@@ -73,7 +73,7 @@
                   </select>
                 </fieldset>
                 <fieldset class="form-group">
-                  <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." required></textarea>
+                  <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..."></textarea>
                 </fieldset>
                 <fieldset class="form-group">
                   <input type="email" ng-model="reviewCtrl.review.author" class="form-control" placeholder="jimmyDean@example.org" required/>
@@ -85,8 +85,6 @@
 
             </div>
             </section>
-
-
         </li>
       </ul>
 
