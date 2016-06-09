@@ -9,7 +9,7 @@
   <body ng-controller = "StoreController as store">
     <ul class="list-group">
 
-        <li class="list-group-item" ng-repeat = "product in store.products | orderBy:'-price'">
+        <li class="list-group-item" ng-repeat = "product in store.products | orderBy:'price'">
             <h1>{{product.name | uppercase}}</h1>
 
             <image width = "100" ng-src = "{{product.image}}" />
@@ -40,8 +40,31 @@
                 <blockquote>None yet</blockquote>
             </div>
             <div class="panel" ng-show = "panel.isSelected(3)">
+              <ul>
                 <h4>Reviews</h4>
-                <blockquote>None yet</blockquote>
+                <li ng-repeat="review in product.reviews">
+                  <blockquote>
+                    <strong>{{review.stars}} Stars</strong>
+                    {{review.body}}
+                    <cite class="clearfix">—{{review.author}}</cite>
+                  </blockquote>
+                </li>
+              </ul>
+              <form name="reviewForm" class="form-group" ng-controller = "ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+                <blockquote>
+                  <b>{{reviewCtrl.review.stars}} Stars</b>
+                  {{reviewCtrl.review.body}}
+                  <cite>By: {{reviewCtrl.review.author}}</cite>
+                </blockquote>
+                 <select ng-model="reviewCtrl.review.stars" class="form-control">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                 </select>
+                  <input type="textarea" ng-model="reviewCtrl.review.body" class="form-control"/>
+                  <input type="email" ng-model="reviewCtrl.review.author" class="form-control"/>
+                  <input type="submit" value="Submit" class="form-control"/>
+              </form>
             </div>
             </section>
 
