@@ -16,9 +16,9 @@ A client-side Javascript Framework for adding interactivity to HTML.
 - Wrap up the app with:
 
     (function() {
-    
+
     var app = angular.module('store',[]);
-    
+
     })();
 - Add a *directive* to the `<html>` tag to include the *Angular app* to the HTML Document.
 
@@ -43,7 +43,7 @@ A client-side Javascript Framework for adding interactivity to HTML.
 - Controllers help us get data on to the page.
 - Ex: `app.controller('StoreController', function() { });`
     - `app` --> Application Name
-    - `controller` --> new `controller`. 
+    - `controller` --> new `controller`.
         This take 2 parameters:
         - Name of the controller
         - an anonymous function
@@ -57,7 +57,7 @@ A client-side Javascript Framework for adding interactivity to HTML.
         - `...as...` --> keyword
         - `...store"` --> Alias
 - [ng-Controller](http://campus.codeschool.com/courses/shaping-up-with-angular-js/level/1/section/2/video/1)
-        
+
 ###Expressions
 - **How values get displayed within the HTML page.**
 - Have 2-way Data Binding, i.e Expressions are re-evaluted when property changes.
@@ -77,7 +77,16 @@ A client-side Javascript Framework for adding interactivity to HTML.
     - `limitTo:`*NUMBER*
     - `orderBy:'`*PARAMETER*`'`
         - `-` added to the *PARAMETER* will reverse the order.
-    
 
 
+###codes
+####Expressions
+-`$` --> referencing a property of the element.
+  -Ex: `{{reviewForm.$valid}}`
+  - Here `$` references the property of the form with name reviewForm.
+  - `valid` is a angular property of the form.
 
+###Form Validations
+- `{{reviewForm.$valid}}` returns true is form is valid.
+- *ng* has it's own validations for input type = email, url, number.
+  - for `number` we can specify `min=1` and  `max=10`.
