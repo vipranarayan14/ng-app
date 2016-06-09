@@ -17,7 +17,7 @@
         createdOn: 1397490980837
       }, {
         stars: 1,
-        body: "This gem sucks.",
+        body: "This gem is so greeeen!!!",
         author: "tim@example.org",
         createdOn: 1397490980837
       }]
@@ -30,7 +30,17 @@
         image: 'Images/sap.jpg',
         canPurchase: false,
         soldOut: false,
-        reviews: []
+        reviews: [{
+        stars: 5,
+        body: "This is so awesome.",
+        author: "mob@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "Not that nice...",
+        author: "pat@example.org",
+        createdOn: 1397490980837
+      }]
     }
 
     ];
@@ -55,7 +65,7 @@
 
         this.addReview = function(product) {
           product.reviews.push(this.review);
-          console.log(product.reviews);
+          this.review = {};
         };
     });
 
