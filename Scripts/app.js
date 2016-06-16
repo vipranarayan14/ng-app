@@ -1,6 +1,6 @@
 /*global angular */
 (function () {
-    var app = angular.module('gemStore', []);
+    var app = angular.module('gemStore', ['directives']);
 
     var gems = [
     {
@@ -17,7 +17,7 @@
         createdOn: 1397490980837
       }, {
         stars: 1,
-        body: "This gem is so greeeen!!!",
+        body: "This gem is so greeeenyyy!!!",
         author: "tim@example.org",
         createdOn: 1397490980837
       }]
