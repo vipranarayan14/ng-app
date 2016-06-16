@@ -124,6 +124,17 @@ A client-side Javascript Framework for adding interactivity to HTML.
     - `orderBy:'`*PARAMETER*`'`
         - `-` added to the *PARAMETER* will reverse the order.
 
+### Modules
+- Best to split Modules around functionality.
+- app.js -> top-level module attached via ng-app.
+- Procedure
+  - create a new JS file and write in it:
+    ```
+    var app =  angular.module('directives', []);
+    ```
+  - add the `directives` module as a dependency in the app.js.
+    `var app = angular.module('gemStore', [`**directives**`]);`
+
 
 ### Codes
 #### Form Validations
