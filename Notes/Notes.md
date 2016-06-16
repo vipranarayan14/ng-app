@@ -77,7 +77,22 @@ A client-side Javascript Framework for adding interactivity to HTML.
     <product-title></product-title>
     ```
   - **NOTE:** the hypen in HTML translates to camelCase in Javascript.
-
+  
+- **NOTE**: When using `controller` and `controllerAs` inside a custom directive,
+    the function in the `controller` should be called with `controllerAs` value.
+    Ex:
+    ```
+    return {
+    ...
+      controller: function() {...
+        this.checkTab = function(){
+          ...
+          }
+      },
+    controllerAs: tab
+    }
+    ```
+    - when using the controller: `tab.checkTab()`
 
 ### Controllers
 - **Controls the application behaviour.**
@@ -134,6 +149,45 @@ A client-side Javascript Framework for adding interactivity to HTML.
     ```
   - add the `directives` module as a dependency in the app.js.
     `var app = angular.module('gemStore', [`**directives**`]);`
+
+### Service
+- give additional functionality to the Controller
+- Fetch JSON data from a web service with `$http` service
+	- `$http` service is how we make async request to a server
+	- Usage:
+		- By using `$http` as a function with options as an object
+			```
+			$http({
+			method: 'GET',
+			url: '/products.json
+			});
+			```
+		- Or using a shortcut method
+			```
+			$http.get('/products.json', {apiKey: 'myApiKey'});
+			```
+		- Both of these return a Promise object with .success() and .error()
+			- *Promise*s allow you to have callbacks on it
+		- The result of `$http` fetch will be objects and arrays
+- **Dependency Injection**
+	- Specifying the services that our controllers need to angular 
+	(inside the square brackets of our controller)
+		```
+		app.controller('someController', ['$http', function($http) {
+		
+		}]);
+		```
+		- `['$http',` --> service name
+		- `function($http){` --> Service name as argument
+	- More than one service:
+		```
+		app.controller('someController', ['$http', '$log', function($http, $log) {
+		
+		}]);
+		```
+- log messages to JS console with `$log` service
+- filter out an array with `$filter` service
+- they all begin with `$` sign as they are built-in angular services
 
 
 ### Codes
